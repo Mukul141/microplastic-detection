@@ -1,3 +1,7 @@
+def keystorePropertiesFile = rootProject.file("key.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 plugins {
     id("com.android.application")
     // START: FlutterFire Configuration
@@ -23,6 +27,9 @@ android {
     }
 
     defaultConfig {
+        manifestPlaceholders = [
+            mapsApiKey: keystoreProperties['MAPS_API_KEY']
+        ]
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.microplastic_detection"
         // You can update the following values to match your application needs.

@@ -33,3 +33,6 @@ web/firebase-messaging-sw.js
 
 # MacOS
 .DS_Store
+
+# Local secrets
+/android/key.propertie
